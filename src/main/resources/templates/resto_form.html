@@ -1,0 +1,18 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Uus restoran</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+</head>
+<body>
+<h1>Looge uus restoran</h1>
+<form action="#" th:action="@{/processRestoForm}" th:object="${restoran}" method="post">
+    <h3>Restorani nimi:</h3><br/>
+    <input type="text" th:field="*{name}" th:required="required"/><br/>
+    <h3>Restorani asukoht:</h3><br/>
+    <input type="text" th:field="*{address}" th:required="required"/><br/>
+    <input type="submit" />
+</form>
+
+</body>
+</html>

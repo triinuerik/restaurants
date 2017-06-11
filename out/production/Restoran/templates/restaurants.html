@@ -1,0 +1,22 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>List of Restaurants</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+</head>
+<body>
+<table style="width:100%">
+  <tr>
+    <th>Nimi</th>
+    <th>Asukoht</th>
+    <th>Keskmine hinne</th>
+    <th>Hinnatud (korda)</th>
+  </tr>
+  <tr th:each="restaurant : ${restaurants}">
+    <td th:text="${restaurant.id}">001</td>
+    <td th:text="${restaurant.name}">Name</td>
+  </tr>
+
+</table>
+</body>
+</html>

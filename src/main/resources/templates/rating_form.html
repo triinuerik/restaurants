@@ -1,0 +1,41 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Uus hinnang</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <link th:rel="stylesheet" th:href="@{//maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css}" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous"></link>
+    <link th:rel="stylesheet" th:href="@{//maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css}" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous"></link>
+    <script th:src="@{//maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js}" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+</head>
+<body>
+<style>
+
+</style>
+<h1 th:text="'Hinnake restorani ' + ${restoRating.restoran.name}"></h1>
+<form action="#" th:action="${'/processRatingForm/' + restoRating.restoran.id}" th:object="${restoRating}" method="post" id = "form">
+    <h3>Teie nimi:</h3><br/>
+    <input type="text" th:field="*{name}" th:required="required"/><br/>
+    <h3>Kommentaar:</h3><br/>
+    <textarea  rows = "10" cols = "30" th:field = "*{comment}" form = "form" th:required="required"></textarea><br/>
+    <h3>Hinnang:</h3><br/>
+    1
+    <input type="radio" th:field="*{rating}" th:value="${1}" th:required="required"/>
+    <input type="radio" th:field="*{rating}" th:value="${2}" th:required="required"/>
+    <input type="radio" th:field="*{rating}" th:value="${3}" th:required="required"/>
+    <input type="radio" th:field="*{rating}" th:value="${4}" th:required="required"/>
+    <input type="radio" th:field="*{rating}" th:value="${5}" th:required="required"/>
+    <input type="radio" th:field="*{rating}" th:value="${6}" th:required="required"/>
+    <input type="radio" th:field="*{rating}" th:value="${7}" th:required="required"/>
+    <input type="radio" th:field="*{rating}" th:value="${8}" th:required="required"/>
+    <input type="radio" th:field="*{rating}" th:value="${9}" th:required="required"/>
+    <input type="radio" th:field="*{rating}" th:value="${10}" />10<br/>
+    <input type="submit" />
+</form>
+<h1>Teiste jäetud hinnangud:</h1>
+<p th:each="restoRating : ${restoRatings}">
+    <h3 th:text="${restoRating.name} + ' (' + ${restoRating.rating} + '/10)'"></h3><br/>
+    <td th:text="${restoRating.comment}"></td><br/><br/>
+</p>
+
+</body>
+</html>
